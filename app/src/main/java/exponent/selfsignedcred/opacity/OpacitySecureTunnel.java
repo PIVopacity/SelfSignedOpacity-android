@@ -407,7 +407,7 @@ public class OpacitySecureTunnel
 
 			//Create CVC:
 			byte[] Cicc=ByteUtil.concatenate(
-					ByteUtil.hexStringToByteArray("5F 29 01 80 42 08"),
+					ByteUtil.hexStringToByteArray("7F 21 5F 29 01 80 42 08"),
 					ByteUtil.hexStringToByteArray("01 01 01 01 01 01 01 01"), //Issuer ID
 					ByteUtil.hexStringToByteArray("5F 20 10"),
 					ByteUtil.hexStringToByteArray("30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30"), //GUID
@@ -427,10 +427,6 @@ public class OpacitySecureTunnel
 					ByteUtil.hexStringToByteArray("5F 37"),
 					Opacity.berTlvEncodeLen(cvcSig.length),
 					cvcSig);
-
-			Cicc=ByteUtil.concatenate(ByteUtil.hexStringToByteArray("7F 21"),
-					Opacity.berTlvEncodeLen(Cicc.length),
-					Cicc);
 
 			byte[] IDicc=Arrays.copyOf(digest.digest(Cicc),8);
 
@@ -556,7 +552,7 @@ public class OpacitySecureTunnel
 
 			//Create CVC:
 			byte[] Cicc=ByteUtil.concatenate(
-					ByteUtil.hexStringToByteArray("5F 29 01 80 42 08"),
+					ByteUtil.hexStringToByteArray("7F 21 5F 29 01 80 42 08"),
 					Iid,//Issuer ID
 					//ByteUtil.hexStringToByteArray("01 01 01 01 01 01 01 01"), //Issuer ID
 					ByteUtil.hexStringToByteArray("5F 20 10"),
@@ -579,10 +575,6 @@ public class OpacitySecureTunnel
 					ByteUtil.hexStringToByteArray("5F 37"),
 					Opacity.berTlvEncodeLen(cvcSig.length),
 					cvcSig);
-
-			Cicc=ByteUtil.concatenate(ByteUtil.hexStringToByteArray("7F 21"),
-					Opacity.berTlvEncodeLen(Cicc.length),
-					Cicc);
 
 			byte[] IDicc=Arrays.copyOf(digest.digest(Cicc),8);
 
