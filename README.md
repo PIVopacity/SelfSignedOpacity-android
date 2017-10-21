@@ -7,7 +7,7 @@ This demonstration is a modified version of the [PIV Opacity Derived Credential 
 Software distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND
 
 
-See [LICENSE](https://github.com/PIVopacity/SelfSigned-android/blob/master/LICENSE.txt)
+See [LICENSE](https://github.com/PIVopacity/SelfSignedOpacity-android/blob/master/LICENSE.txt)
 
 
 ### Security ###
