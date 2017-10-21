@@ -19,32 +19,47 @@ Written by Christopher Williams, Ph.D. (cwilliams@exponent.com)
 package exponent.selfsignedcred.dhsdemo;
 
 import android.app.Activity;
+import android.nfc.NfcAdapter;
+import android.nfc.Tag;
 import android.os.Build;
 import android.os.Environment;
 import android.security.keystore.KeyGenParameterSpec;
 import android.security.keystore.KeyInfo;
 import android.security.keystore.KeyProperties;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+import exponent.selfsignedcred.CA.DODCACert;
+import exponent.selfsignedcred.R;
+import exponent.selfsignedcred.opacity.AesParameters;
+import exponent.selfsignedcred.opacity.Opacity;
+import exponent.selfsignedcred.opacity.OpacitySecureTunnel;
 
 import org.spongycastle.cert.X509v3CertificateBuilder;
 import org.spongycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.spongycastle.cert.jcajce.JcaX509v3CertificateBuilder;
+import org.spongycastle.jcajce.provider.asymmetric.X509;
 import org.spongycastle.operator.ContentSigner;
 import org.spongycastle.operator.OperatorCreationException;
 import org.spongycastle.operator.jcajce.JcaContentSignerBuilder;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.security.GeneralSecurityException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.Key;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
@@ -52,16 +67,19 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.UnrecoverableEntryException;
+import java.security.UnrecoverableKeyException;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+import java.security.interfaces.RSAKey;
 import java.security.spec.ECGenParameterSpec;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAKeyGenParameterSpec;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-
+import java.util.HashMap;
 import javax.security.auth.x500.X500Principal;
 
 
