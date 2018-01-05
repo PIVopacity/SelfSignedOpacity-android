@@ -23,7 +23,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.os.Environment;
 import android.util.Log;
-import exponent.selfsignedcred.CA.DODCACert;
+
 import exponent.selfsignedcred.opacity.AesParameters;
 import exponent.selfsignedcred.opacity.Opacity;
 import exponent.selfsignedcred.opacity.OpacitySecureTunnel;
@@ -40,7 +40,6 @@ import java.security.SecureRandom;
 import java.security.Signature;
 import java.security.SignatureException;
 import java.security.cert.CertificateEncodingException;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.security.interfaces.RSAKey;
