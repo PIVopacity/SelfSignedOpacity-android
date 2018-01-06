@@ -198,7 +198,6 @@ public class OpacitySecureTunnel
 
 		//Verify CVC here
 
-
         KeyFactory kf=KeyFactory.getInstance("EC");
 		ECPublicKeySpec keySpec = null;
 		if((opacFlav & 0xFF)==0x2E)
