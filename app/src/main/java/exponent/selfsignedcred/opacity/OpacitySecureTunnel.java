@@ -564,7 +564,7 @@ public class OpacitySecureTunnel
 					// ByteUtil.hexStringToByteArray("30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30"), //GUID
 					ByteUtil.hexStringToByteArray("7F 49"),
 					ByteUtil.hexStringToByteArray(String.format("%02X 06 05",clientPublicKey.length+8)),
-					ByteUtil.hexStringToByteArray("2B 81 04 00 22"), //Algorithm OID for ECDH P-256
+					ByteUtil.hexStringToByteArray("2B 81 04 00 22"), //Algorithm OID for ECDH P-384
 					ByteUtil.hexStringToByteArray("86 "+String.format("%02X",clientPublicKey.length)),
 					clientPublicKey,
 					ByteUtil.hexStringToByteArray("5F 4C 01 00")
