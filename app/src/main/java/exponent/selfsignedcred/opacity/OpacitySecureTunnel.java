@@ -197,19 +197,6 @@ public class OpacitySecureTunnel
 
 
 		//Verify CVC here
-//        X509Certificate smSignerCert;
-//        response = transceiver.transceive("Get Secure Messaging Cert. Signer", GET_SMCERT_SIGNER);
-//        if (null == response)
-//        {
-//            logger.alert(CARD_COMM_ERROR, ERROR_TITLE);
-//            transceiver.close();
-//            return null;
-//        }
-//        CertificateFactory cf = CertificateFactory.getInstance("X.509");
-//        ByteArrayInputStream bis = new ByteArrayInputStream(Arrays.copyOfRange(response.data, 8, 8 + (((response.data[6] & 0xFF) << 8) | (response.data[7] & 0xFF))));
-//        smSignerCert = (X509Certificate) cf.generateCertificate(bis);
-//        logger.info(TAG,"Secure Message Signer:  "+ByteUtil.toHexString(response.data," "));
-//        //logger.info(TAG,"Secure Message Signer:  "+smSignerCert.toString());
 
 
         KeyFactory kf=KeyFactory.getInstance("EC");
